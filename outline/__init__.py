@@ -1,1 +1,1 @@
-from outline import outline
+from outline.outline import *
