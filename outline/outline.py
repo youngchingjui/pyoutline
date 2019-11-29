@@ -98,6 +98,7 @@ def list_access_keys(server_api_url):
     Returns:
         access_keys ([dict]): List of all access keys in dictionary format
     """
+
     headers = {'Content-Type': "application/json"}
     response = requests.get(server_api_url + '/access-keys',
                             headers=headers, verify=False)
