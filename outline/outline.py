@@ -103,3 +103,32 @@ def list_access_keys(server_api_url):
     response = requests.get(server_api_url + '/access-keys',
                             headers=headers, verify=False)
     return response.json()['accessKeys']
+
+
+def list_data_transferred(server_api_url):
+    """
+    Lists the data transferred for every access key on the server
+
+    Args:
+        server_api_url (string): Outline server apiUrl
+
+    Returns:
+        bytesTransferredByUserId (dict): Dictionary of all access keys and bytes transferred. For each entry, key = outline_id, and value = bytes transferred
+            Example format:
+            {
+                '3': 457239,
+                '4': 312739849,
+                '45': 3127,
+                '3': 234
+            } 
+    """
+
+    headers = {'Content-Type': "application/json"}
+    response = requests.get(server_api_url + '/metrics/transfer',
+                            headers=headers, verify=False)
+    return response.json()['bytesTransferredByUserId']
+
+
+if __name__ == '__main__':
+    # For dev testing
+    list_data_transferred('https://34.97.12.232:63508/pm1ALCBRl8xbvD_H_gpL4A')
