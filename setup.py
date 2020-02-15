@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="outline-manager",
-    version="0.0.2",
+    version="0.0.3",
     author="Ching Jui Young",
     author_email="young.chingjui@youngandai.com",
     description="Manages access keys for servers with Outline server installed.",
