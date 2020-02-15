@@ -88,6 +88,24 @@ def remove_limit(server_api_url, outline_access_key_id):
     return response
 
 
+def delete_access_key(apiUrl, outline_access_key_id):
+    """
+    Deletes an access key
+
+    Args:
+        apiUrl (string): Outline server apiUrl
+        outline_access_key_id (string or int): id for server-access key on Outline
+
+    Returns:
+        response (response): Response from the request
+    """
+
+    headers = {'Content-Type': "application/json"}
+    response = requests.delete(
+        apiUrl+'/access-keys/'+str(outline_access_key_id), headers=headers, verify=False)
+    return response
+
+
 def list_access_keys(server_api_url):
     """
     Lists access keys for server
@@ -131,4 +149,4 @@ def list_data_transferred(server_api_url):
 
 if __name__ == '__main__':
     # For dev testing
-    list_data_transferred('https://34.97.12.232:63508/pm1ALCBRl8xbvD_H_gpL4A')
+    delete_access_key('https://34.97.12.232:63508/pm1ALCBRl8xbvD_H_gpL4A', 144)
